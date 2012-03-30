@@ -29,6 +29,36 @@ class User:
 	__username_flag_ = "--username"
 	pout = subprocess.Popen(["headpin", self._user_flag_, u, self._password_flag_, p, self._command_, "update", _username_flag_, username], stdout=subprocess.PIPE)
         return pout.communicate()
+
+
+    def user_report(self,username,u="admin",p="admin"):
+        pout = subprocess.Popen(["headpin", self._user_flag_, u, self._password_flag_, p, self._command_, "report"], stdout=subprocess.PIPE)
+        return pout.communicate()
+
+
+    def user_assign_role(self,username,role,u="admin",p="admin"):
+        _username_flag_ = "--username"
+        _role_flag_ = "--role"
+        pout = subprocess.Popen(["headpin", self._user_flag_, u, self._password_flag_, p, self._command_, "assign_role", _username_flag_, username, _role_flag_, role], stdout=subprocess.PIPE)
+        return pout.communicate()
+
+    def user_unassign_role(self,username,role,u="admin",p="admin"):
+        _username_flag_ = "--username"
+        _role_flag_ = "--role"
+        pout = subprocess.Popen(["headpin", self._user_flag_, u, self._password_flag_, p, self._command_, "unassign_role", _username_flag_, username, _role_flag_, role], stdout=subprocess.PIPE)
+        return pout.communicate()
+   
+    
+    def user_list_roles(self,username,u="admin",p="admin"):
+        _username_flag_ = "--username"
+        pout = subprocess.Popen(["headpin", self._user_flag_, u, self._password_flag_, p, self._command_, "list_roles",_username_flag_, username], stdout=subprocess.PIPE)
+        return pout.communicate()
+
+
+    def user_delete(self,username,u="admin",p="admin"):
+        _username_flag_ = "--username"
+        pout = subprocess.Popen(["headpin", self._user_flag_, u, self._password_flag_, p, self._command_, "delete",_username_flag_, username], stdout=subprocess.PIPE)
+        return pout.communicate()
     
 
    
