@@ -21,19 +21,19 @@ class TestUserRole:
 
     def test_user_role_info(self):
         userrole = User_Role()
-	out,err = user.user_role_info("rolename")
+	out,err = userrole.user_role_info("rolename")
 	Assert.equal(err,None)
 
 
     def test_user_role_update(self):
         userrole = User_Role()
-        out,err = user.user_role_update("rolename")
+        out,err = userrole.user_role_update("rolename")
         Assert.equal(err,None)
 
 
 
     def test_user_role_delete(self):
         userrole=User_Role()
-        out,err = user.user_role_delete("rolename")
+        out,err = userrole.user_role_delete("rolename")
         Assert.equal(err,None)
 

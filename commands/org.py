@@ -24,7 +24,7 @@ class Org:
         return pout.communicate()
 
     def org_update(self,orgname,u="admin",p="admin"):
-	__name_flag_ = "--name"
+	_name_flag_ = "--name"
 	pout = subprocess.Popen(["headpin", self._user_flag_, u, self._password_flag_, p, self._command_, "update", _name_flag_, orgname], stdout=subprocess.PIPE)
         return pout.communicate()
 

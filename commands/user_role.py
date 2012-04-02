@@ -26,7 +26,7 @@ class User_Role:
 
 
     def user_role_update(self,name,u="admin",p="admin"):
-	__rolename_flag_ = "--name"
+	_rolename_flag_ = "--name"
 	pout = subprocess.Popen(["headpin", self._user_flag_, u, self._password_flag_, p, self._command_, "update", _rolename_flag_, name], stdout=subprocess.PIPE)
         return pout.communicate()
 

@@ -26,13 +26,14 @@ class User:
         return pout.communicate()
 
     def user_update(self,username,u="admin",p="admin"):
-	__username_flag_ = "--username"
+	_username_flag_ = "--username"
 	pout = subprocess.Popen(["headpin", self._user_flag_, u, self._password_flag_, p, self._command_, "update", _username_flag_, username], stdout=subprocess.PIPE)
         return pout.communicate()
 
 
     def user_report(self,username,u="admin",p="admin"):
-        pout = subprocess.Popen(["headpin", self._user_flag_, u, self._password_flag_, p, self._command_, "report"], stdout=subprocess.PIPE)
+	_username_flag_ = "--username"
+        pout = subprocess.Popen(["headpin", self._user_flag_, u, self._password_flag_, p, self._command_, "report", _username_flag_, username], stdout=subprocess.PIPE)
         return pout.communicate()
 
 
