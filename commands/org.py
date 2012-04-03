@@ -35,7 +35,10 @@ class Org:
         return pout.communicate()
     
 
-   
+    def org_subscriptions(self,orgname,u="admin",p="admin"):
+        _name_flag_ = "--name"
+        pout = subprocess.Popen(["headpin", self._user_flag_, u, self._password_flag_, p, self._command_, "delete",_name_flag_, orgname], stdout=subprocess.PIPE)
+        return pout.communicate()   
         
         
         
