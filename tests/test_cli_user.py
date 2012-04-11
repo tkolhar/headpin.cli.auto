@@ -7,11 +7,11 @@ from commands.base import Base
 xfail = pytest.mark.xfail
 
 class TestUser:
-    base = Base()
-    new_user_name = "user%s" % base.random_string()
-    new_password = base.random_string()
+    #base = Base()
+    new_user_name = "user%s" % Base.random_string()
+    new_password = Base.random_string()
     new_email = new_user_name + "@redhat.com"
-    new_role_name = "role%s" % base.random_string()
+    new_role_name = "role%s" % Base.random_string()
      
     
     def test_user_list(self):
