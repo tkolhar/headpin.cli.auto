@@ -11,8 +11,7 @@ class TestProduct:
     
     def test_product_list(self):
         product = Product()
-	base = Base() 
-        orgname = "Org%s" % base.random_string()
+        orgname = "Org%s" % Base.random_string()
         out, err = product.product_list(orgname)
         Assert.equal(err, None)
         
