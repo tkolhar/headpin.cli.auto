@@ -7,9 +7,10 @@ class Ping:
     _command_ = "ping"
     _user_flag_ = "-u"
     _password_flag_ = "-p"
-    
-    def ping_status(self, u="admin", p="admin"):
-        pout = subprocess.Popen(["headpin", self._user_flag_, u, self._password_flag_, p, self._command_], stdout=subprocess.PIPE)
+
+    @staticmethod    
+    def ping_status(u="admin", p="admin"):
+        pout = subprocess.Popen(["headpin", Ping._user_flag_, u, Ping._password_flag_, p, Ping._command_], stdout=subprocess.PIPE)
         return pout.communicate()
         
         

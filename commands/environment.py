@@ -8,34 +8,37 @@ class Environment:
     _user_flag_ = "-u"
     _password_flag_ = "-p"
 
-    def environment_create(self,orgname,envname,priorenv,u="admin",p="admin"):
+    @staticmethod
+    def environment_create(orgname,envname,priorenv,u="admin",p="admin"):
         _orgname_flag_ = "--org"
 	_envname_flag_ = "--name"
 	_priorenv_flag_ = "--prior"
-        pout = subprocess.Popen(["headpin", self._user_flag_, u, self._password_flag_, p, self._command_, "create", _orgname_flag_, orgname,_envname_flag_, envname, _priorenv_flag_, priorenv], stdout=subprocess.PIPE)
+        pout = subprocess.Popen(["headpin", Environment._user_flag_, u, Environment._password_flag_, p, Environment._command_, "create", _orgname_flag_, orgname,_envname_flag_, envname, _priorenv_flag_, priorenv], stdout=subprocess.PIPE)
         return pout.communicate()
-    
-    def environment_list(self, orgname,u="admin", p="admin"):
+
+    @staticmethod
+    def environment_list(orgname,u="admin", p="admin"):
         _orgname_flag_ = "--org"
-        pout = subprocess.Popen(["headpin", self._user_flag_, u, self._password_flag_, p, self._command_, "list", _orgname_flag_,orgname], stdout=subprocess.PIPE)
+        pout = subprocess.Popen(["headpin", Environment._user_flag_, u, Environment._password_flag_, p, Environment._command_, "list", _orgname_flag_,orgname], stdout=subprocess.PIPE)
         return pout.communicate()
 
-
-    def environment_info(self,orgname,envname,u="admin",p="admin"):
+    @staticmethod  
+    def environment_info(orgname,envname,u="admin",p="admin"):
 	_orgname_flag_ = "--org"
 	_envname_flag_ = "--name"
-	pout = subprocess.Popen(["headpin", self._user_flag_, u, self._password_flag_, p, self._command_, "info", _orgname_flag_, orgname,_envname_flag_, envname], stdout=subprocess.PIPE)
+	pout = subprocess.Popen(["headpin", Environment._user_flag_, u, Environment._password_flag_, p, Environment._command_, "info", _orgname_flag_, orgname,_envname_flag_, envname], stdout=subprocess.PIPE)
         return pout.communicate()
 
-    def environment_update(self,orgname,envname,u="admin",p="admin"):
+    @staticmethod
+    def environment_update(orgname,envname,u="admin",p="admin"):
 	_orgname_flag_ = "--org"
         _envname_flag_ = "--name"
-	pout = subprocess.Popen(["headpin", self._user_flag_, u, self._password_flag_, p, self._command_, "update", _orgname_flag_, orgname, _envname_flag_, envname], stdout=subprocess.PIPE)
+	pout = subprocess.Popen(["headpin", Environment._user_flag_, u, Environment._password_flag_, p, Environment._command_, "update", _orgname_flag_, orgname, _envname_flag_, envname], stdout=subprocess.PIPE)
         return pout.communicate()
 
-
-    def environment_delete(self,orgname,envname,u="admin",p="admin"):
+    @staticmethod
+    def environment_delete(orgname,envname,u="admin",p="admin"):
         _orgname_flag_ = "--org"
         _envname_flag_ = "--name"
-        pout = subprocess.Popen(["headpin", self._user_flag_, u, self._password_flag_, p, self._command_, "delete",_orgname_flag_, orgname,_envname_flag_, envname], stdout=subprocess.PIPE)
+        pout = subprocess.Popen(["headpin", Environment._user_flag_, u, Environment._password_flag_, p, Environment._command_, "delete",_orgname_flag_, orgname,_envname_flag_, envname], stdout=subprocess.PIPE)
         return pout.communicate()    

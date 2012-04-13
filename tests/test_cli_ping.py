@@ -9,7 +9,6 @@ xfail = pytest.mark.xfail
 class TestPing:
     
     def test_ping(self):
-        ping = Ping()
-        out, err = ping.ping_status()
+        out, err = Ping.ping_status()
         Assert.equal(err, None)
         
