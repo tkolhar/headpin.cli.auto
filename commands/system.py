@@ -14,6 +14,20 @@ class System:
         pout = subprocess.Popen(["headpin", System._user_flag_, u, System._password_flag_, p, System._command_, "list", _orgname_flag_, orgname], stdout=subprocess.PIPE)
         return pout.communicate()
 
+    @staticmethod 
+    def system_list_org_not_provided(u="admin", p="admin"):
+        _orgname_flag_ ="--org"
+        pout = subprocess.Popen(["headpin", System._user_flag_, u, System._password_flag_, p, System._command_, "list", _orgname_flag_], stderr=subprocess.PIPE)
+        return pout.communicate()
+
+    @staticmethod
+    def system_list_environment_not_provided(orgname,u="admin", p="admin"):
+        _orgname_flag_ ="--org"
+        _environment_flag_ = "environment"
+        pout = subprocess.Popen(["headpin", System._user_flag_, u, System._password_flag_, p, System._command_, "list", _orgname_flag_,orgname,_environment_flag_], stderr=subprocess.PIPE)
+        return pout.communicate()
+
+
     @staticmethod
     def system_unregister(orgname,sysname,u="admin",p="admin"):
 	_orgname_flag_ = "--org"
@@ -22,10 +36,41 @@ class System:
         return pout.communicate()
 
     @staticmethod
+    def system_unregister_orgname_not_provided(sysname,u="admin",p="admin"):
+        _orgname_flag_ = "--org"
+        _sysname_flag_ = "--name"
+        pout = subprocess.Popen(["headpin", System._user_flag_, u, System._password_flag_, p, System._command_, "unregister",_sysname_flag_, sysname,_orgname_flag_], stderr=subprocess.PIPE)
+        return pout.communicate()
+
+    @staticmethod
+    def system_unregister_systemname_not_provided(orgname,u="admin",p="admin"):
+        _orgname_flag_ = "--org"
+        _sysname_flag_ = "--name"
+        pout = subprocess.Popen(["headpin", System._user_flag_, u, System._password_flag_, p, System._command_, "unregister", _orgname_flag_, orgname, _sysname_flag_], stderr=subprocess.PIPE)
+        return pout.communicate()
+ 
+
+    @staticmethod
     def system_subscriptions(orgname,sysname,u="admin",p="admin"):
         _orgname_flag_ = "--org"
         _sysname_flag_ = "--name"
 	pout = subprocess.Popen(["headpin", System._user_flag_, u, System._password_flag_, p, System._command_, "subscriptions", _orgname_flag_, orgname, _sysname_flag_, sysname], stdout=subprocess.PIPE)
+        return pout.communicate()
+
+
+    @staticmethod
+    def system_subscriptions_orgname_not_provided(sysname,u="admin",p="admin"):
+        _orgname_flag_ = "--org"
+        _sysname_flag_ = "--name"
+        pout = subprocess.Popen(["headpin", System._user_flag_, u, System._password_flag_, p, System._command_, "subscriptions", _sysname_flag_, sysname, _orgname_flag_], stderr=subprocess.PIPE)
+        return pout.communicate()
+
+
+    @staticmethod
+    def system_subscriptions_sysname_not_provided(orgname,u="admin",p="admin"):
+        _orgname_flag_ = "--org"
+        _sysname_flag_ = "--name"
+        pout = subprocess.Popen(["headpin", System._user_flag_, u, System._password_flag_, p, System._command_, "subscriptions", _orgname_flag_, orgname, _sysname_flag_], stderr=subprocess.PIPE)
         return pout.communicate()
 
     @staticmethod
