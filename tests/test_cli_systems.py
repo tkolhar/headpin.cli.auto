@@ -46,12 +46,35 @@ class TestSystem:
         Assert.equal(err,"Usage: headpin [options]\n\nheadpin: error: --name option requires an argument\n")
  
     
+    def test_system_info_orgname_not_provided(self):
+        #new_org_name = "Org%s" % Base.random_string()
+        new_sys_name = "Sys%s" % Base.random_string()
+	out,err = System.system_info_orgname_not_provided(new_sys_name)
+	Assert.equal(err,"Usage: headpin [options]\n\nheadpin: error: --org option requires an argument\n")
+
+    def test_system_info_sysname_not_provided(self):
+        new_org_name = "Org%s" % Base.random_string()
+        #new_sys_name = "Sys%s" % Base.random_string()
+        out,err = System.system_info_sysname_not_provided(new_org_name)
+        Assert.equal(err,"Usage: headpin [options]\n\nheadpin: error: --name option requires an argument\n")
+
     def test_system_info(self):
         new_org_name = "Org%s" % Base.random_string()
         new_sys_name = "Sys%s" % Base.random_string()
-	out,err = System.system_info(new_org_name,new_sys_name)
-	Assert.equal(err,None)
+        out,err = System.system_info(new_org_name,new_sys_name)
+        Assert.equal(err,None)
 
+    def test_system_info_orgname_not_provided(self):
+        #new_org_name = "Org%s" % Base.random_string()
+        new_sys_name = "Sys%s" % Base.random_string()
+        out,err = System.system_info_orgname_not_provided(new_sys_name)
+        Assert.equal(err,"Usage: headpin [options]\n\nheadpin: error: --org option requires an argument\n")
+
+    def test_system_info_sysname_not_provided(self):
+        new_org_name = "Org%s" % Base.random_string()
+        #new_sys_name = "Sys%s" % Base.random_string()
+        out,err = System.system_info_sysname_not_provided(new_org_name)
+        Assert.equal(err,"Usage: headpin [options]\n\nheadpin: error: --name option requires an argument\n")
 
     def test_system_update(self):
         new_org_name = "Org%s" % Base.random_string()
@@ -59,12 +82,28 @@ class TestSystem:
         out,err = System.system_update(new_org_name,new_sys_name)
         Assert.equal(err,None)
 
+    def test_system_update_orgname_missing(self):
+        #new_org_name = "Org%s" % Base.random_string()
+        new_sys_name = "Sys%s" % Base.random_string()
+        out,err = System.system_update_orgname_missing(new_sys_name)
+        Assert.equal(err,"Usage: headpin [options]\n\nheadpin: error: --org option requires an argument\n")
+ 
+    def test_system_update_sysname_missing(self):
+        new_org_name = "Org%s" % Base.random_string()
+        #new_sys_name = "Sys%s" % Base.random_string()
+        out,err = System.system_update_sysname_missing(new_org_name)
+        Assert.equal(err,"Usage: headpin [options]\n\nheadpin: error: --name option requires an argument\n")
+
 
     def test_system_report(self):
         new_org_name = "Org%s" % Base.random_string()
         out,err = System.system_report(new_org_name)
         Assert.equal(err,None)
 
+    def test_system_report(self):
+        #new_org_name = "Org%s" % Base.random_string()
+        out,err = System.system_report_orgname_missing()
+        Assert.equal(err,"Usage: headpin [options]\n\nheadpin: error: --org option requires an argument\n")
 
     def test_system_subscriptions(self):
         new_org_name = "Org%s" % Base.random_string()
@@ -96,6 +135,38 @@ class TestSystem:
         new_org_name = "Org%s" % Base.random_string()
         new_sys_name = "Sys%s" % Base.random_string()
 	new_pool_id = "pool%s" % Base.random_string()
-        out,err = System.system_facts(new_org_name,new_sys_name,new_pool_id)
+        out,err = System.system_subscribe(new_org_name,new_sys_name,new_pool_id)
         Assert.equal(err,None)
+
+
+    def test_system_subscribe_sysname_poolid_not_provided(self):
+        new_org_name = "Org%s" % Base.random_string()
+        new_sys_name = "Sys%s" % Base.random_string()
+        #new_pool_id = "pool%s" % Base.random_string()
+        out,err = System.system_subscribe_sysname_poolid_not_provided(new_org_name,new_sys_name)
+        Assert.equal(err,"Usage: headpin [options]\n\nheadpin: error: --pool option requires an argument\n")
+
+
+    def test_system_subscribe_poolid_not_provided(self):
+        new_org_name = "Org%s" % Base.random_string()
+        new_sys_name = "Sys%s" % Base.random_string()
+        #new_pool_id = "pool%s" % Base.random_string()
+        out,err = System.system_subscribe_poolid_not_provided(new_org_name,new_sys_name)
+        Assert.equal(err,"Usage: headpin [options]\n\nheadpin: error: --pool option requires an argument\n")
+
+
+    def test_system_subscribe_sysname_not_provided(self):
+        new_org_name = "Org%s" % Base.random_string()
+        #new_sys_name = "Sys%s" % Base.random_string()
+        new_pool_id = "pool%s" % Base.random_string()
+        out,err = System.system_subscribe_sysname_not_provided(new_org_name,new_pool_id)
+        Assert.equal(err,"Usage: headpin [options]\n\nheadpin: error: --name option requires an argument\n")
+
+
+    def test_system_subscribe_orgname_not_provided(self):
+        #new_org_name = "Org%s" % Base.random_string()
+        new_sys_name = "Sys%s" % Base.random_string()
+        new_pool_id = "pool%s" % Base.random_string()
+        out,err = System.system_subscribe_orgname_not_provided(new_sys_name,new_pool_id)
+        Assert.equal(err,"Usage: headpin [options]\n\nheadpin: error: --org option requires an argument\n")
 
